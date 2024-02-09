@@ -22,11 +22,16 @@ module.exports = (dfs, opts) => {
     // Load Auth and then register the routes
     fastify.decorate('basicAuth', Auth(opts.authOpts))
     fastify.register(FastifyAuth)
-        .after(() => {
-            fastify.register(FastifyStatic, { root: path.join(__dirname, 'html') })
-            fastify.register(directoryRoutes, { prefix: '/api' })
-            fastify.register(fileRoutes, { prefix: '/api' })
-        })
+    fastify.register(FastifyStatic, { root: path.join(__dirname, 'html') })
+    fastify.register(directoryRoutes, { prefix: '/api' })
+    fastify.register(fileRoutes, { prefix: '/api' })
+        
+    fastify.get('/', function (req, reply) {
+        reply.sendFile('index.html') // serving path.join(__dirname, 'public', 'myHtml.html') directly
+    })
+    fastify.get('/home', function (req, reply) {
+        reply.sendFile('home.html') // serving path.join(__dirname, 'public', 'myHtml.html') directly
+    })
 
     // Attach dfs to every req
     fastify.addHook('onRequest', async (req) => { req.dfs = dfs })
