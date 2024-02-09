@@ -8,7 +8,7 @@ const startApp = async () => {
     // Create http Server instance
     const httpServer = HttpServer(dfs, httpConfig)
 
-    return httpServer.listen({ host: '0.0.0.0', port: httpConfig.port })
+    return httpServer.listen({ host: 'localhost', port: httpConfig.port })
 }
 
 startApp().then()

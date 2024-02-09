@@ -29,6 +29,9 @@ module.exports = (dfs, opts) => {
     fastify.get('/', function (req, reply) {
         reply.sendFile('index.html') // serving path.join(__dirname, 'public', 'myHtml.html') directly
     })
+    fastify.get('/registration', function (req, reply) {
+        reply.sendFile('index.html') // serving path.join(__dirname, 'public', 'myHtml.html') directly
+    })
     fastify.get('/home', function (req, reply) {
         reply.sendFile('home.html') // serving path.join(__dirname, 'public', 'myHtml.html') directly
     })

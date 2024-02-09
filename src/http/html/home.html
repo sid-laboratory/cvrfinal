@@ -36,6 +36,14 @@
                     </a>
                     <meta property="position" content="2">
                 </li>
+                <li property="itemListElement" typeof="ListItem">
+                    <a property="item" typeof="WebPage" class="menu-item">
+                        <span property="name" id="logout-btn">
+                            Logout
+                        </span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
             </ul>
         </nav>
     </div>
@@ -148,6 +156,12 @@
                     console.log('Excellent, registered with scope: ', registration.scope)
                 })
         }
+
+
+        document.getElementById('logout-btn').addEventListener('click', function() {
+        localStorage.removeItem('token');
+        window.location.href = '/';
+        });
 
         // Fake click upload file button
         document.getElementById('upload-btn')
