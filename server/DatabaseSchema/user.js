@@ -42,9 +42,10 @@ try {
 }
 
 
-UserSchema.methods.verifyPassword = async function(password) {
+UserSchema.methods.verifyPassword = async function(password2) {
 try{
-return await bcrypt.compare(password,this.password);
+  console.log("password and verify password",password2,this.password);
+return await bcrypt.compare(password2,this.password);
 }
 catch(err)
 {
