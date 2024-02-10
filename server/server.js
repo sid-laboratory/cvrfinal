@@ -17,6 +17,8 @@ const router = express.Router();
 
 //----------------------------------------------    import    ----------------------------------------------//  
 
+
+
 const home = require('./components/Home');
 const login = require('./components/login');
 const registration = require('./components/registration');
@@ -32,12 +34,12 @@ const user = require('./components/user-com');
 // const serviceSchema = require('./validate/service-validate');
 
 
-
-
-
 app.use('/', router);
-// app.use(authMiddleWare);
+app.use(authMiddleWare);
 app.use(errorMiddleware);
+
+
+
 
 
 
@@ -47,8 +49,10 @@ router.route('/registration').post(validate(SignUpSchema),registration); // Rout
 
 // app.use(authMiddleWare);
 router.route('/').post(validate(loginSchema),login);
-// app.use(authMiddleWare) 
 router.route('/user').get(authMiddleWare, user);
+
+// app.use(authMiddleWare) 
+
 // router.route('/service').get(service);
 // router.route('/addservice').post(addService);
 

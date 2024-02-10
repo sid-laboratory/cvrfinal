@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const login = async (req,res) => { 
   try {
-    console.log("hi ra lmao");
+    console.log("hi ra lmao",req.body);
     const {email,password} = req.body;
     console.log("from backend login",email,password);
     const UserExists = await User.findOne({email:email});
