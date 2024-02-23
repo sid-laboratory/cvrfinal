@@ -6,7 +6,7 @@ app.use(express.json()); // Make sure this comes before your route handling midd
 
 
 const corsOptions = {
-    origin: 'http://127.0.0.1:3000',
+    origin: 'http://0.0.0.0',
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     optionsSuccessStatus: 200,
     credentials: true,
